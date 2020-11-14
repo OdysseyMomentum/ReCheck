@@ -1,3 +1,4 @@
+[![BCH compliance](https://bettercodehub.com/edge/badge/OdysseyMomentum/ReCheck?branch=main)](https://bettercodehub.com/)
 # ReCheck
 Real Estate - Give Buildings a Personality
 
