@@ -367,7 +367,7 @@ public class AccessingDataNeo4jApplication {
     CommandLineRunner demo(UOIRepository uoiRepository) {
         return args -> {
 //            testing(uoiRepository);
-//            demoNodes(uoiRepository);
+            demoNodes(uoiRepository);
 //            demoNodesCombineTwoRooms(uoiRepository);
 //            demoNodesAddANewRoom(uoiRepository);
         };

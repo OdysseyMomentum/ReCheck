@@ -29,7 +29,7 @@ public class UOINode {
     private String address;
 
     // unique building ID https://github.com/pnnl/buildingid
-    private UBID ubid;
+    private String ubid;
 
     //needed for beacons/chip
     private double longitude;
@@ -50,6 +50,19 @@ public class UOINode {
     @JsonIgnoreProperties("UOINode")
     @Relationship(type = "PART_OF", direction = Relationship.OUTGOING)
     private UOINode parent;
+
+    public UOINode(LEVEL level, double length, double height, double width, String owner, String tenant, String ubid, double longitude, double latitude) {
+        this.uuid = "NL." + UUID.randomUUID();
+        this.level = level;
+        this.timestamp = String.valueOf(new Date().getTime());
+        this.length = length;
+        this.height = height;
+        this.owner = owner;
+        this.tenant = tenant;
+        this.ubid = ubid;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
     public void partOf(UOINode parent) {
         setParent(parent);
@@ -149,11 +162,11 @@ public class UOINode {
         this.uuid = uuid;
     }
 
-    public UBID getUbid() {
+    public String getUbid() {
         return ubid;
     }
 
-    public void setUbid(UBID ubid) {
+    public void setUbid(String ubid) {
         this.ubid = ubid;
     }
 
