@@ -4,9 +4,10 @@ Real Estate - Give Buildings a Personality
 
 ## Road Map : 
 
-Adding parameters to relationships
+making the search 
 
-adding APIs to create the 
+adding APIs to create relations 
+ 
 
 ## Tech Stack
 - IDE IntelliJ

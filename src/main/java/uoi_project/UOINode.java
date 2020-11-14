@@ -1,6 +1,7 @@
 package uoi_project;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.json.JSONObject;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
@@ -108,7 +109,12 @@ public class UOINode {
 
     @Override
     public String toString() {
-        return this.uuid + "UOI in the work";
+        JSONObject js = new JSONObject();
+        js.put("uuid", this.uuid);
+        js.put("timestamp", this.timestamp);
+        js.put("level", this.level);
+
+        return js.toString();
     }
 
     public double getLongitude() {
@@ -246,4 +252,6 @@ public class UOINode {
     public void setHistoryOf(UOINode historyOf) {
         this.historyOf = historyOf;
     }
+
+
 }
