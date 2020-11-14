@@ -1,5 +1,6 @@
 package uoi_project;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +21,7 @@ public class BaseInformationController {
     public UOINode generateNewUOI() {
         double length = 3;
         double height = 3;
-        double width = 3;
+        double width = 0.5;
         String owner = "Odyssey";
         String tenant = "Momentum";
         // unique building ID https://github.com/pnnl/buildingid
@@ -36,9 +37,16 @@ public class BaseInformationController {
         return node;
     }
 
-//    @PostMapping(path = "/newWithInformation", consumes = "application/json", produces = "application/json")
-//    public void addMember(@RequestBody UOINode uoiNode) {
-//        System.out.println(uoiNode);
-//    }
+    @PostMapping(path = "/newWithInformation", consumes = "application/json", produces = "application/json")
+    public UOINode addMember(@RequestBody UOINode uoiNode) {
+        JSONObject js = new JSONObject(uoiNode);
+        System.out.println(js.toString());
+        uoiRepository.save(uoiNode);
+        return uoiNode;
+    }
+
+    //create
+    //search
+    //making relations
 
 }

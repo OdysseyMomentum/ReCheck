@@ -57,6 +57,7 @@ public class UOINode {
         this.timestamp = String.valueOf(new Date().getTime());
         this.length = length;
         this.height = height;
+        this.width = width;
         this.owner = owner;
         this.tenant = tenant;
         this.ubid = ubid;
