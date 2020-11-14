@@ -8,6 +8,7 @@ Adding parameters to relationships
 adding APIs to create the 
 
 ## Tech Stack
+- IDE IntelliJ
 - Java - 1.8
 - neo4j server - 3.5.22
 - neo4j driver - 4.1.1
