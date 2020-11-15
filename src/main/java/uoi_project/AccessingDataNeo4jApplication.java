@@ -20,10 +20,10 @@ public class AccessingDataNeo4jApplication {
 
     private final static Logger log = LoggerFactory.getLogger(AccessingDataNeo4jApplication.class);
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(AccessingDataNeo4jApplication.class, args);
-        System.exit(0);
-    }
+//    public static void main(String[] args) throws Exception {
+//        SpringApplication.run(AccessingDataNeo4jApplication.class, args);
+//        System.exit(0);
+//    }
 
     public void demoNodes(UOIRepository uoiRepository){
         List<UOINode> nodes = new ArrayList<UOINode>();

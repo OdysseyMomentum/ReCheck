@@ -104,7 +104,7 @@ public class UOINode {
     public UOINode(LEVEL level) {
         this.uuid = "NL." + UUID.randomUUID();
         this.level = level;
-        this.timestamp = String.valueOf(new Date().getTime());
+        this.timestamp = String.valueOf(new Date());
     }
 
     @Override
