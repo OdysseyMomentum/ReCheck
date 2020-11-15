@@ -158,6 +158,12 @@ public class BaseInformationController {
                 "</body></html>";
     }
 
+    @GetMapping("/clearDB")
+    public String clearDB(){
+        uoiRepository.deleteAll();
+        return "DB has been cleared!";
+    }
+
     @GetMapping("/scenarioAddANewRoom")
     public String executeDemoNodeAddANewRoom(){
         uoiRepository.deleteAll();
@@ -267,11 +273,9 @@ public class BaseInformationController {
 
         UOINode wall5 = new UOINode(LEVEL.WALL);
         UOINode wall6 = new UOINode(LEVEL.WALL);
-        UOINode wall7 = new UOINode(LEVEL.WALL);
 
         nodes.add(wall5);
         nodes.add(wall6);
-        nodes.add(wall7);
 
         UOINode room2 = new UOINode(LEVEL.ROOM);
 
@@ -328,7 +332,6 @@ public class BaseInformationController {
         //History of the rooms
         room1.historyOf(roomCombined);
         room2.historyOf(roomCombined);
-        wall7.historyOf(room1);
         uoiRepository.saveAll(nodes);
     }
 
