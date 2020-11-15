@@ -113,7 +113,9 @@ public class UOINode {
         js.put("uuid", this.uuid);
         js.put("timestamp", this.timestamp);
         js.put("level", this.level);
-
+        if (this.ubid != null) {
+            js.put("UBID", this.ubid);
+        }
         return js.toString();
     }
 

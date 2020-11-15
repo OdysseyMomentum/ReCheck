@@ -19,6 +19,7 @@ public class BaseInformationController {
 //        double width = 0.5;
 //        String owner = "Odyssey";
 //        String tenant = "Momentum";
+
 //        // unique building ID https://github.com/pnnl/buildingid
 //        String ubid = "849VQJH6+97CVG-1279-797-1043-922";
 //
@@ -39,14 +40,23 @@ public class BaseInformationController {
         return node.toString();
     }
 
+    @GetMapping("/updateUBIDByGivenUOI")
+    public String updateUBID(@RequestParam(value = "uuid") String uuid, @RequestParam(value = "ubid") String ubid){
+        int nodePlace= 99999;
+        ArrayList<UOINode> nodes = (ArrayList<UOINode>) uoiRepository.findAll();
+        for (int i=0; i<nodes.size();i++){
+            if (nodes.get(i).getUuid().equals(uuid)) {
+                nodePlace = i;
+            }
+        }
+        nodes.get(nodePlace).setUbid(ubid);
+        uoiRepository.saveAll(nodes);
+        return nodes.get(nodePlace).toString();
+    }
 
     @GetMapping("/getAllNodes")
-    public String getAllNodes(@RequestParam(value = "level", defaultValue = "ROOM") LEVEL level) {
+    public String getAllNodes() {
         ArrayList<UOINode> nodes = (ArrayList<UOINode>) uoiRepository.findAll();
-        ArrayList<UOINode> listNodes = new ArrayList<>();
-        nodes.forEach(uoiNode -> {
-            listNodes.add(uoiNode);
-        });
         return nodes.toString();
     }
 
@@ -130,8 +140,5 @@ public class BaseInformationController {
         uoiRepository.save(uoiNode);
         return uoiNode;
     }
-
-
-    //making relations
 
 }
