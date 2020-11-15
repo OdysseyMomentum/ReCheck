@@ -164,6 +164,13 @@ public class BaseInformationController {
         return "DB has been cleared!";
     }
 
+    @GetMapping("/")
+    public String error(){
+        return "<html><body>" + "<img src='https://cdn.discordapp.com/attachments/675683560673509389/776827370161700874/addtext_com_MTAwMTI1MzExODY.jpg'/> " +
+                "</body></html>";
+
+    }
+
     @GetMapping("/scenarioAddANewRoom")
     public String executeDemoNodeAddANewRoom(){
         uoiRepository.deleteAll();
