@@ -146,22 +146,23 @@ public class BaseInformationController {
     public String executeDemoNode(){
         uoiRepository.deleteAll();
         demoNodes(uoiRepository);
-        return "Success";
-    }
-
-    @GetMapping("/demoNodesCombineTwoRooms")
-    public String executeDemoNodeCombineTwoRooms(){
-        uoiRepository.deleteAll();
-        demoNodesCombineTwoRooms(uoiRepository);
-        return "<html><body>" + "<img src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0300ffb5-857b-40a1-a2f1-f377d78b2952/d2ykrux-efdd3e45-aefd-4bac-8506-61a147be6127.jpg/v1/fill/w_900,h_1352,q_75,strp/kartinka_by_overthecuckoo_d2ykrux-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xMzUyIiwicGF0aCI6IlwvZlwvMDMwMGZmYjUtODU3Yi00MGExLWEyZjEtZjM3N2Q3OGIyOTUyXC9kMnlrcnV4LWVmZGQzZTQ1LWFlZmQtNGJhYy04NTA2LTYxYTE0N2JlNjEyNy5qcGciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.5my9yERBylqyGfyKcJdL2pUG5HVJZz78xdbNmkOqqbw'/> " +
+        return "<html><body>" + "<img src='https://cdn.discordapp.com/attachments/709719423094751313/777503104983629824/Untitled_Diagram1.png'/> " +
                 "</body></html>";
     }
 
-    @GetMapping("/demoNodesAddANewRoom")
+    @GetMapping("/scenarioCombine")
+    public String executeDemoNodeCombineTwoRooms(){
+        uoiRepository.deleteAll();
+        demoNodesCombineTwoRooms(uoiRepository);
+        return "<html><body>" + "<img src='https://cdn.discordapp.com/attachments/709719423094751313/777503102551064576/Untitled_Diagram3.png'/> " +
+                "</body></html>";
+    }
+
+    @GetMapping("/scenarioAddANewRoom")
     public String executeDemoNodeAddANewRoom(){
         uoiRepository.deleteAll();
         demoNodesAddANewRoom(uoiRepository);
-        return "<html><body>" + "<img src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0300ffb5-857b-40a1-a2f1-f377d78b2952/d2ykrux-efdd3e45-aefd-4bac-8506-61a147be6127.jpg/v1/fill/w_900,h_1352,q_75,strp/kartinka_by_overthecuckoo_d2ykrux-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xMzUyIiwicGF0aCI6IlwvZlwvMDMwMGZmYjUtODU3Yi00MGExLWEyZjEtZjM3N2Q3OGIyOTUyXC9kMnlrcnV4LWVmZGQzZTQ1LWFlZmQtNGJhYy04NTA2LTYxYTE0N2JlNjEyNy5qcGciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.5my9yERBylqyGfyKcJdL2pUG5HVJZz78xdbNmkOqqbw'/> " +
+        return "<html><body>" + "<img src='https://cdn.discordapp.com/attachments/709719423094751313/777503092572553226/Untitled_Diagram4.png'/> " +
                 "</body></html>";
     }
 
@@ -187,12 +188,10 @@ public class BaseInformationController {
         UOINode wall5 = new UOINode(LEVEL.WALL);
         UOINode wall6 = new UOINode(LEVEL.WALL);
         UOINode wall7 = new UOINode(LEVEL.WALL);
-        UOINode wall8 = new UOINode(LEVEL.WALL);
 
         nodes.add(wall5);
         nodes.add(wall6);
         nodes.add(wall7);
-        nodes.add(wall8);
 
         UOINode room2 = new UOINode(LEVEL.ROOM);
 
@@ -223,7 +222,7 @@ public class BaseInformationController {
         wall5.partOf(room2);
         wall6.partOf(room2);
         wall7.partOf(room2);
-        wall8.partOf(room2);
+        wall4.partOf(room2);
 
         uoiRepository.saveAll(nodes);
 
@@ -231,7 +230,7 @@ public class BaseInformationController {
         room2.consistsOf(wall5);
         room2.consistsOf(wall6);
         room2.consistsOf(wall7);
-        room2.consistsOf(wall8);
+        room2.consistsOf(wall4);
 
         uoiRepository.saveAll(nodes);
 
@@ -269,12 +268,10 @@ public class BaseInformationController {
         UOINode wall5 = new UOINode(LEVEL.WALL);
         UOINode wall6 = new UOINode(LEVEL.WALL);
         UOINode wall7 = new UOINode(LEVEL.WALL);
-        UOINode wall8 = new UOINode(LEVEL.WALL);
 
         nodes.add(wall5);
         nodes.add(wall6);
         nodes.add(wall7);
-        nodes.add(wall8);
 
         UOINode room2 = new UOINode(LEVEL.ROOM);
 
@@ -331,6 +328,7 @@ public class BaseInformationController {
         //History of the rooms
         room1.historyOf(roomCombined);
         room2.historyOf(roomCombined);
+        wall7.historyOf(room1);
         uoiRepository.saveAll(nodes);
     }
 

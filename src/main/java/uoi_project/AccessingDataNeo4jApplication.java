@@ -41,12 +41,10 @@ public class AccessingDataNeo4jApplication {
         UOINode wall5 = new UOINode(LEVEL.WALL);
         UOINode wall6 = new UOINode(LEVEL.WALL);
         UOINode wall7 = new UOINode(LEVEL.WALL);
-        UOINode wall8 = new UOINode(LEVEL.WALL);
 
         nodes.add(wall5);
         nodes.add(wall6);
         nodes.add(wall7);
-        nodes.add(wall8);
 
         UOINode room2 = new UOINode(LEVEL.ROOM);
 
@@ -77,7 +75,7 @@ public class AccessingDataNeo4jApplication {
         wall5.partOf(room2);
         wall6.partOf(room2);
         wall7.partOf(room2);
-        wall8.partOf(room2);
+        wall4.partOf(room2);
 
         uoiRepository.saveAll(nodes);
 
@@ -85,7 +83,7 @@ public class AccessingDataNeo4jApplication {
         room2.consistsOf(wall5);
         room2.consistsOf(wall6);
         room2.consistsOf(wall7);
-        room2.consistsOf(wall8);
+        room2.consistsOf(wall4);
 
         uoiRepository.saveAll(nodes);
 
@@ -113,7 +111,7 @@ public class AccessingDataNeo4jApplication {
     @Bean
     CommandLineRunner demo(UOIRepository uoiRepository) {
         return args -> {
-//            demoNodes(uoiRepository);
+            demoNodes(uoiRepository);
         };
     }
 
